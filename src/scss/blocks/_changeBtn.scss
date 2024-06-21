@@ -9,7 +9,7 @@
         content:"";
         width: 50%;
         height: 100%;
-        transform: translateX(0);
+        transform: translateX(-3px);
         background-color: #f1f1f1;
         border-radius: inherit;
         z-index: 0;
@@ -18,7 +18,7 @@
     &.btnActiv{
         border-color: #151515;
         &:before{
-            transform: translateX(100%);
+            transform: translateX(102%);
             background-color: #151515;
         }
         .top__btn--black{

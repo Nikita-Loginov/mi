@@ -6,29 +6,31 @@ const menuItem = document.querySelectorAll('.menu__item')
 menuBtn.addEventListener('click',function(item){
     menu.classList.toggle('activeMenu')
     if(menu.classList.contains('activeMenu')){
-        // menuItem.forEach(function(item){
-        //     item.addEventListener('click',function(e){
-        //         menu.classList.remove('activeMenu')
-        //     })
-        // })
-        window.addEventListener('click',function(e){
-            const clickItem =  e.composedPath().includes(menu)
-            if(!clickItem){
+        menuItem.forEach(function(item){
+            item.addEventListener('click',function(e){
                 menu.classList.remove('activeMenu')
-            }
+            })
         })
+        outsideBlock(menu)
     }
 })
+
+function outsideBlock(block){
+    window.addEventListener('click',function(e){
+        const clickItem =  e.composedPath().includes(block)
+        if(!clickItem){
+            block.classList.remove('activeMenu')
+        }
+    })
+}
 
 // modal for header
 const headerBtn = document.querySelector('.header__link')
 const modalBuy = document.querySelector('.modalBuy')
-const buyInner = document.querySelector('.buy__inner')
-const buy__close = document.querySelector('.buy__close')
+const buyClose = document.querySelector('.buy__close')
 
-headerBtn.addEventListener('click',function(item){
-    modalBuy.classList.toggle('activeModal')
-})
+addClassActiveModal(headerBtn,modalBuy)
+removeClassActiveModal(buyClose,modalBuy)
 
 modalBuy.addEventListener('click',function(e){
         const currentItem = e.target.closest('.buy__inner')
@@ -37,51 +39,17 @@ modalBuy.addEventListener('click',function(e){
         }
 })
 
-buy__close.addEventListener('click',function(e){
-    modalBuy.classList.remove('activeModal')
-})
-
 // tab for product
 const productItem = document.querySelectorAll('.product__item')
 const productImg = document.querySelectorAll('.product__img-item')
 
-productItem.forEach(function(item){
-    item.addEventListener('click',function(e){
-        const currentItemContent = item;
-        const currentItemContentId = currentItemContent.getAttribute('data-tab');
-        const currentItemImg = document.getElementById(currentItemContentId)
-        productItem.forEach(function(item){
-            item.classList.remove('product__item--active')
-        })
-        productImg.forEach(function(item){
-            item.classList.remove('product__img-item--active')
-        })
-
-        item.classList.add('product__item--active')
-        currentItemImg.classList.add('product__img-item--active')
-    })
-})
+tabs(productItem,productImg,'product__item--active','product__img-item--active','product__item--active','product__img-item--active')
 
 // tab for safety
 const safetyItem = document.querySelectorAll('.safety__item')
 const safetyImg = document.querySelectorAll('.safety__img-item')
 
-safetyItem.forEach(function(item){
-    item.addEventListener('click',function(e){
-        const currentItemContent = item;
-        const currentItemContentId = currentItemContent.getAttribute('data-tab');
-        const currentItemImg = document.getElementById(currentItemContentId)
-        safetyItem.forEach(function(item){
-            item.classList.remove('safety__item--active')
-        })
-        safetyImg.forEach(function(item){
-            item.classList.remove('safety__img-item--active')
-        })
-
-        item.classList.add('safety__item--active')
-        currentItemImg.classList.add('safety__img-item--active')
-    })
-})
+tabs(safetyItem,safetyImg,'safety__item--active','safety__img-item--active','safety__item--active','safety__img-item--active')
 
 // change while and black
 let styleMode = localStorage.getItem('styleMode')
@@ -94,6 +62,9 @@ function changeBlack(){
     document.querySelectorAll('.top__imgbox').forEach(function(item){
         item.classList.add('activeImg')
     })
+    document.querySelectorAll('.buy__imgbox').forEach(function(item){
+        item.classList.add('activeImg')
+    })
     document.querySelector('.buy__imgbox').classList.add('activeImg')
     localStorage.setItem('styleMode','black')
 }
@@ -104,6 +75,9 @@ function changeWhile(){
         item.classList.remove('btnActiv')
     })
     document.querySelectorAll('.top__imgbox').forEach(function(item){
+        item.classList.remove('activeImg')
+    })
+    document.querySelectorAll('.buy__imgbox').forEach(function(item){
         item.classList.remove('activeImg')
     })
     document.querySelector('.buy__imgbox').classList.remove('activeImg')
@@ -122,7 +96,7 @@ styleToggle.forEach(function(item){
 })
 
 
-if(styleMode !== 'black'){
+if(styleMode === 'black'){
     changeBlack();
 }
 
@@ -189,6 +163,7 @@ fagItem.forEach(function(item){
 const buyInfoBox = document.querySelectorAll('.buy__infobox')
 const buyInfoBoxBtn = document.querySelectorAll('.buy__infobox')
 
+
 buyInfoBoxBtn.forEach(function(item){
     item.addEventListener('click',function(e){
         buyInfoBox.forEach(function(item){
@@ -197,4 +172,88 @@ buyInfoBoxBtn.forEach(function(item){
         
     })
 })
+
+
+//modal for reviews
+
+const reviewsBtn = document.querySelector('.reviews__btn')
+const reviewsmodalBtn = document.querySelector('.reviewsmodal__btn')
+const reviewsmodal = document.querySelector('.reviewsmodal')
+const reviewsmodalInner = document.querySelector('.reviewsmodal__inner')
+const reviewsmodalClose = document.querySelector('.reviewsmodal__close')
+
+addClassActiveModal(reviewsBtn,reviewsmodal)
+removeClassActiveModal(reviewsmodalBtn,reviewsmodal)
+removeClassActiveModal(reviewsmodalClose,reviewsmodal)
+
+reviewsmodal.addEventListener('click',function(e){
+    e.preventDefault();
+    const currentItem = e.target.closest('.reviewsmodal__inner')
+    if(!currentItem){
+        reviewsmodal.classList.remove('activeModal')
+    }
+})
+
+//modal for fag
+
+const fagBtn = document.querySelector('.fag__btn')
+const fagmodal = document.querySelector('.fagmodal')
+const fagmodalBtn = document.querySelector('.fagmodal__btn')
+const fagmodalInner = document.querySelector('.fagmodal__inner')
+const fagmodalClose = document.querySelector('.fagmodal__close')
+
+addClassActiveModal(fagBtn,fagmodal)
+removeClassActiveModal(fagmodalClose,fagmodal)
+removeClassActiveModal(fagmodalBtn,fagmodal)
+
+fagmodal.addEventListener('click',function(e){
+    const currentItem = e.target.closest('.fagmodal__inner')
+    if(!currentItem){
+        fagmodal.classList.remove('activeModal')
+    }
+})
+
+
+// functions
+function removeClassActiveModal(btnItem,removeItem){
+    btnItem.addEventListener('click',function(e){
+        e.preventDefault()
+        removeItem.classList.remove('activeModal')
+    })
+}
+
+function addClassActiveModal(btnItem,addItem){
+    btnItem.addEventListener('click',function(e){
+        addItem.classList.add('activeModal')
+    })
+}
+
+
+function tabs(btnItem,openContentImg,removeClassActiveOne,removeClassActiveTwo,addClassActiveOne,addClassActiveTwo){
+    btnItem.forEach(function(item){
+        item.addEventListener('click',function(e){
+            const currentItemContent = item;
+            const currentItemContentId = currentItemContent.getAttribute('data-tab');
+            const currentItemImg = document.getElementById(currentItemContentId)
+            btnItem.forEach(function(item){
+                item.classList.remove(removeClassActiveOne)
+            })
+            openContentImg.forEach(function(item){
+                item.classList.remove(removeClassActiveTwo)
+            })
+
+            item.classList.add(addClassActiveOne)
+            currentItemImg.classList.add(addClassActiveTwo)
+        })
+    })
+}
+
+
+
+
+
+
+
+
+
 

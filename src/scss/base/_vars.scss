@@ -13,6 +13,8 @@ $accent-color:#ff4c0d;
 $text-color:#f1f1f1;
 $title-color:#ff4c0d;
 $button-color:#f1f1f1;
+$input-color:#f1f1f1;
+$textarea-color:#f1f1f1;
 //PADDING
 $padding-container:0px 15px;
 @mixin padding($pt,$pr,$pb,$pl){
@@ -21,6 +23,8 @@ $padding-container:0px 15px;
 
 //MIN-HEIGHT
 $minHeight-btn:54px;
+$minHeight-textarea:154px;
+$minHeight-input:54px;
 //BORDER
 @mixin border($borderWidth,$borderColor,$borderStyle){
     border:$borderWidth $borderColor $borderStyle;
@@ -28,6 +32,8 @@ $minHeight-btn:54px;
 //BORDERRADIUS
 $borderRadiusBtn:25px;
 $borderRadiusCard:15px;
+$borderRadiusInput:15px;
+$borderRadiusTextarea:15px;
 @mixin borderRadius($borderRadiusWidth){
     border-radius:$borderRadiusWidth;
 }
@@ -86,6 +92,7 @@ $borderRadiusCard:15px;
     color:#151515;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
     span{
         transition: all .5s;
     }
@@ -105,6 +112,35 @@ $borderRadiusCard:15px;
         &:before{
             transform:translateX(0px);
         }
+    }
+}
+
+%input{
+    @extend %flexCenter;
+    @include padding(0,20px,0,20px);
+    @include border(1px,$main-color,solid);
+    @include borderRadius($borderRadiusInput);
+    min-height: $minHeight-input;
+    background-color: $input-color;
+    box-shadow: inset -7px -6px 10px 0px #796d6d, inset -10px -10px 10px #f1f1f1;
+    &::placeholder{
+        font-size: 18px;
+        
+    }
+}
+
+%textarea{
+    // @extend %flexCenter;
+    @include padding(10px,20px,0,20px);
+    @include border(1px,$main-color,solid);
+    @include borderRadius($borderRadiusTextarea);
+    min-height: $minHeight-textarea;
+    background-color: $textarea-color;
+    box-shadow: inset -7px -6px 10px 0px #796d6d, inset -10px -10px 10px #f1f1f1;
+    resize: none;
+    font-size: 18px;
+    &::placeholder{
+        font-size: 18px;
     }
 }
 

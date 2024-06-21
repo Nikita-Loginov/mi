@@ -20,7 +20,7 @@
     &__text{
         margin-bottom: clamp(0.938rem, 0.506rem + 1.84vw, 1.875rem);
     }
-    &__link{
+    &__btn{
         @extend %btn;
     }
     &__items{

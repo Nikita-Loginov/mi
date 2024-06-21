@@ -56,13 +56,22 @@ body{
 .blackStyle{
     .product__item-title,
     .product__item-text,
+    .safety__item-title,
+    .safety__item-text,
     .top__title,
     .buy__title,
     .buy__info-text,
-    .buy__info-item{
+    .buy__info-item,
+    .mobileapp__text,
+    .fag__text,
+    .fag__question,
+    .fag__answer,
+    .footer,
+    .footer a{
         color:#151515;
     }
-    .product__item-decor{
+    .product__item-decor,
+    .safety__item-decor{
         background-color: #151515;
     }
     .buy__close{
