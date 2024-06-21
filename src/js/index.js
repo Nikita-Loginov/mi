@@ -150,18 +150,28 @@ const swiper = new Swiper('.brand-swiper', {
 const swiperReviews = new Swiper('.reviews-swiper', {
     direction: 'horizontal',
     loop: true,
-    slidesPerView:2.5,
+    slidesPerView:1,
     spaceBetween: 40,
     effect: "coverflow",
     navigation: {
         nextEl: '.reviews__btn-arrow-next',
         prevEl: '.reviews__btn-arrow-prev',
     },
-    // breakpoints:{
-    //     640:{
-    //         direction: 'vertical',
-    //     }
-    // }
+    pagination: {
+        el: '.reviews__pagination',
+        clickable: true,
+    },
+    breakpoints:{
+        1023:{
+            slidesPerView:2.5,
+        },
+        767:{
+            slidesPerView:2,
+        },
+        641:{
+            slidesPerView:1.3,
+        }
+    }
 });
 
 // accordeon for fag
@@ -170,20 +180,21 @@ const fagItem = document.querySelectorAll('.fag__item')
 
 fagItem.forEach(function(item){
     item.addEventListener('click',function(e){
-        
-        // fagItem.forEach(function(item){
-        //     item.classList.remove('active')
-        // })
-
-        
-        // if(item.classList.contains('active')){
-        //     fagItem.forEach(function(item){
-        //         item.addEventListener('click',function(e){
-        //             item.classList.remove('active')
-        //         })
-        //     })
-        // }
         item.classList.toggle('active')
+    })
+})
+
+//buy bytton for the scope of delivery
+
+const buyInfoBox = document.querySelectorAll('.buy__infobox')
+const buyInfoBoxBtn = document.querySelectorAll('.buy__infobox')
+
+buyInfoBoxBtn.forEach(function(item){
+    item.addEventListener('click',function(e){
+        buyInfoBox.forEach(function(item){
+            item.classList.toggle('buy__infobox--active')
+        })
+        
     })
 })
 

@@ -1,7 +1,7 @@
 @import "base/_vars.scss";
 
 .footer{
-    padding: 60px 0;
+    padding: clamp(2.5rem, 1.925rem + 2.45vw, 3.75rem) 0;
     &__inner{
         display: flex;
         justify-content: space-between;
@@ -18,5 +18,13 @@
     }
     &__info{
         text-align: right;
+    }
+    @media(max-width:550px){
+        &__inner{
+            flex-direction: column;
+        }
+        &__link{
+            text-align: left;
+        }
     }
 }

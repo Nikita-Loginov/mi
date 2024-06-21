@@ -92,7 +92,7 @@ $borderRadiusCard:15px;
     &:before{
         position: absolute;
         content: attr(title);
-        transform:translateX(-350%);
+        transform:translateX(-750%);
         transition: all .5s;
         color:#f1f1f1;
     }
@@ -100,7 +100,7 @@ $borderRadiusCard:15px;
         border-radius: 30px;
         background-color: #ee6c3d;
         span{
-            transform: translateX(350%);
+            transform: translateX(750%);
         }
         &:before{
             transform:translateX(0px);
