@@ -1,7 +1,7 @@
 @import "base/_vars.scss";
 
 .fag{
-    padding: clamp(1.875rem, 1.012rem + 3.68vw, 3.75rem) 0;
+    padding: clamp(6.25rem, 5.675rem + 2.45vw, 7.5rem) 0 20px;
     &__inner{
         display: flex;
         justify-content: space-between;

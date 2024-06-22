@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>mi</title>
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="css/main.min.css">
-</head>
+</head> 
 <body>
     <div class="wrapper">
         <section class="buy modalBuy">
@@ -123,19 +124,19 @@
                 </button>
                 <ul class="menu__list">
                     <li class="menu__item">
-                        <a class="menu__link" href="#">О продукте</a>
+                        <a class="menu__link" href="#product">О продукте</a>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Внешний вид</a>
+                        <a class="menu__link" href="#about">Внешний вид</a>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Безопасность</a>
+                        <a class="menu__link" href="#safety">Безопасность</a>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link" href="#">Отзывы</a>
+                        <a class="menu__link" href="#reviews">Отзывы</a>
                     </li>
                     <li class="menu__item">
-                        <a class="menu__link menu__link--big" href="#">FAq</a>
+                        <a class="menu__link menu__link--big" href="#fag">FAq</a>
                     </li>
                 </ul>
             </nav>
@@ -145,6 +146,13 @@
         </div>
     </div>
 </header>
+        <div class="preload">
+    <svg width="60.000000" height="39.000000" viewBox="0 0 60 39" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+        <defs/>
+        <path id="形状结合" d="M59.36 0C59.71 0 60 0.28 60 0.62L60 38.37C60 38.71 59.71 39 59.36 39L51.23 39C50.89 39 50.6 38.71 50.6 38.37L50.6 0.62C50.6 0.28 50.89 0 51.23 0L59.36 0ZM24.09 0C30.22 0 36.63 0.28 39.79 3.5C42.9 6.67 43.24 12.98 43.25 19.1L43.25 38.37C43.25 38.71 42.97 39 42.62 39L34.5 39C34.15 39 33.86 38.71 33.86 38.37L33.86 18.77C33.85 15.35 33.66 11.83 31.93 10.06C30.43 8.54 27.65 8.19 24.75 8.12L10.02 8.12C9.67 8.12 9.39 8.4 9.39 8.74L9.39 38.37C9.39 38.71 9.1 39 8.76 39L0.62 39C0.28 39 0 38.71 0 38.37L0 0.62C0 0.28 0.28 0 0.62 0L24.09 0ZM25.91 15.03C26.25 15.03 26.53 15.31 26.53 15.65L26.53 38.37C26.53 38.71 26.25 39 25.91 39L17.37 39C17.02 39 16.74 38.71 16.74 38.37L16.74 15.65C16.74 15.31 17.02 15.03 17.37 15.03L25.91 15.03Z" fill="#FF4C0D" fill-opacity="1.000000" fill-rule="evenodd"/>
+    </svg>
+</div>
         <main class="main">
             <section class="top">
     <div class="container">
@@ -168,7 +176,7 @@
         <img class="top__img top__img--black" src="img/top/scateBlack.png" alt="skateBlack" width="711" height="838">
     </div>
 </section>
-            <section class="product">
+            <section class="product reveal" id="product">
     <div class="container">
         <div class="product__inner">
             <div class="product__textbox">
@@ -227,7 +235,7 @@
         </div>
     </div>
 </section>
-            <section class="modal">
+            <section class="modal reveal">
     <div class="container">
         <div class="modal__inner">
             <div class="modal__content">
@@ -242,7 +250,7 @@
         </div>
     </div>
 </section>
-            <section class="about">
+            <section class="about reveal" id="about">
     <div class="container">
         <div class="about__inner">
             <div class="about__content">
@@ -271,7 +279,7 @@
         </div>
     </div>
 </section>
-            <section class="safety">
+            <section class="safety reveal" id="safety">
     <div class="container">
         <div class="safety__inner">
             <div class="safety__content">
@@ -340,7 +348,7 @@
         </div>
     </div>
 </section>
-            <section class="mobileapp">
+            <section class="mobileapp reveal">
     <div class="container">
         <div class="mobileapp__inner">
             <div class="mobileapp__content">
@@ -406,7 +414,7 @@
         </div>
     </div>
 </section>
-            <section class="brand">
+            <section class="brand reveal">
     <div class="brand__inner">
         <div class="brand-swiper swiper">
             <div class="swiper-wrapper">
@@ -475,7 +483,7 @@
         </div>
     </div>
 </section>
-            <section class="reviews">
+            <section class="reviews reveal" id="reviews">
     <div class="container">
         <div class="reviews__inner">
             <h3 class="reviews__title">
@@ -605,7 +613,7 @@
         </div>
     </div>
 </section>
-            <section class="fag">
+            <section class="fag reveal" id="fag">
     <div class="container">
         <div class="fag__inner">
             <div class="fag__content">
@@ -653,7 +661,7 @@
         </div>
     </div>
 </section>
-            <section class="buy">
+            <section class="buy reveal">
     <div class="container">
         <div class="buy__inner">
             <div class="buy__box">

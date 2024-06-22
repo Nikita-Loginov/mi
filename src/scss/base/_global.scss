@@ -16,7 +16,7 @@ body{
     background-color: var(--bg-color);
     color:$main-color;
     @extend %Gilroy-400;
-    overflow-x: hidden;
+    overflow: hidden;
     &.open--menu{
         overflow: hidden;
     }
@@ -52,6 +52,30 @@ body{
     margin: 0 auto;
     padding: $padding-container;
 }
+
+section{
+    &.reveal{
+        opacity: 0;
+        transition: all .8s;
+        &:nth-of-type(odd){
+            transform: translateX(100px);
+        }
+        &:nth-of-type(even){
+            transform: translateX(-100px);
+        }
+        &--active{
+            opacity: 1;
+            &:nth-of-type(odd){
+                transform: translateX(0);
+            }
+            &:nth-of-type(even){
+                transform: translateX(0);
+            }
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////
 
 .blackStyle{
     .product__item-title,

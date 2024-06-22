@@ -23,14 +23,17 @@ function outsideBlock(block){
         }
     })
 }
+////////////////////////////////////////////////////////////////////////
 
 // modal for header
 const headerBtn = document.querySelector('.header__link')
 const modalBuy = document.querySelector('.modalBuy')
 const buyClose = document.querySelector('.buy__close')
-
+const buyLink = document.querySelector('.buy__link')
 addClassActiveModal(headerBtn,modalBuy)
 removeClassActiveModal(buyClose,modalBuy)
+removeClassActiveModal(buyLink,modalBuy)
+
 
 modalBuy.addEventListener('click',function(e){
         const currentItem = e.target.closest('.buy__inner')
@@ -38,6 +41,7 @@ modalBuy.addEventListener('click',function(e){
             modalBuy.classList.remove('activeModal')
         }
 })
+////////////////////////////////////////////////////////////////////////
 
 // tab for product
 const productItem = document.querySelectorAll('.product__item')
@@ -50,6 +54,9 @@ const safetyItem = document.querySelectorAll('.safety__item')
 const safetyImg = document.querySelectorAll('.safety__img-item')
 
 tabs(safetyItem,safetyImg,'safety__item--active','safety__img-item--active','safety__item--active','safety__img-item--active')
+
+////////////////////////////////////////////////////////////////////////
+
 
 // change while and black
 let styleMode = localStorage.getItem('styleMode')
@@ -100,6 +107,8 @@ if(styleMode === 'black'){
     changeBlack();
 }
 
+////////////////////////////////////////////////////////////////////////
+
 // swiper for brand
 
 const swiper = new Swiper('.brand-swiper', {
@@ -148,6 +157,8 @@ const swiperReviews = new Swiper('.reviews-swiper', {
     }
 });
 
+////////////////////////////////////////////////////////////////////////
+
 // accordeon for fag
 
 const fagItem = document.querySelectorAll('.fag__item')
@@ -157,6 +168,8 @@ fagItem.forEach(function(item){
         item.classList.toggle('active')
     })
 })
+
+////////////////////////////////////////////////////////////////////////
 
 //buy bytton for the scope of delivery
 
@@ -172,6 +185,8 @@ buyInfoBoxBtn.forEach(function(item){
         
     })
 })
+
+////////////////////////////////////////////////////////////////////////
 
 
 //modal for reviews
@@ -194,6 +209,8 @@ reviewsmodal.addEventListener('click',function(e){
     }
 })
 
+////////////////////////////////////////////////////////////////////////
+
 //modal for fag
 
 const fagBtn = document.querySelector('.fag__btn')
@@ -212,6 +229,44 @@ fagmodal.addEventListener('click',function(e){
         fagmodal.classList.remove('activeModal')
     }
 })
+
+////////////////////////////////////////////////////////////////////////
+
+//Smooth appearance of blocks
+
+window.addEventListener('scroll',reveal)
+
+function reveal(){
+    let reveals = document.querySelectorAll('.reveal')
+
+    for(let i = 0; i < reveals.length;i += 1){
+
+        let windowHeight = window.innerHeight;
+        let revealleft = reveals[i].getBoundingClientRect().top;
+        let revealpoint = 150
+
+        if(revealleft < windowHeight - revealpoint){
+            reveals[i].classList.add('reveal--active')
+        }else{
+            reveals[i].classList.remove('reveal--active')
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////
+
+//preload 
+
+const body = document.querySelector('body')
+const preload = document.querySelector('.preload')
+
+window.addEventListener('load',function(e){
+    preload.style.display = "none"
+    body.style.overflowY = 'visible'
+    
+})
+
+////////////////////////////////////////////////////////////////////////
 
 
 // functions

@@ -1,7 +1,7 @@
 @import "base/_vars.scss";
 
 .mobileapp{
-    padding-top: 60px;
+    padding-top: clamp(6.25rem, 5.675rem + 2.45vw, 7.5rem);
     position: relative;
     &:before{
         position: absolute;
